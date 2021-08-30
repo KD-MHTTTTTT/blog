@@ -1,0 +1,54 @@
+server:
+  port: 23000 # 服务端口
+  servlet:
+    context-path: /app
+spring:
+  application:
+    name: app-blog # 服务名
+  #spring:
+  datasource: # mysql数据库连接
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/blogger?serverTimezone=GMT%2B8
+    username: root
+    password: root
+  #spring:
+  jackson: #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  #spring:
+  mail:
+    host: smtp.qq.com
+    username: 1873939425@qq.com
+    password: vfrikpywzlgjeghf
+  #spring
+  redis:
+    host: localhost
+    port: 6379
+    database: 11
+  #spring
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test-consumer-group
+      enable-auto-commit: true
+      auto-commit-interval: 3000
+  #spring
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          username: 127.0.0.1:9200
+      repositories:
+        enabled: true
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+  # Caffeine
+#caffeine:
+#  posts:
+#    max-size: 15
+#    expire-seconds: 180
